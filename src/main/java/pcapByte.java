@@ -20,10 +20,10 @@ public class pcapByte {
         DataOutputStream dos = new DataOutputStream(new FileOutputStream("/home/bjbhaha/Desktop/music31.pcap"));
         byte pcapHeader[] = new byte[]{(byte) 0xD4, (byte) 0xC3, (byte) 0xB2, (byte) 0xA1, 0x02, 0x00, 0x04,
                 0x00,0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x01,0x00,0x00,0x00};
-        dos.write(pcapHeader,0,24);//
+        dos.write(pcapHeader,0,24);
         //javaRDD.foreach(x->System.out.println(x._2));
         List<byte[]> list=new ArrayList<>();
-        list=javaRDD.map(x->{
+        list=javaRDD.map(x->{//
             int l=x._2.getLength();
             byte[] a=new byte[l];
             System.arraycopy(x._2.getBytes(),0,a,0,l);
